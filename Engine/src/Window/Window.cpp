@@ -60,26 +60,30 @@ Engine::Window::Window(std::string name, uint32_t width, uint32_t height, bool f
 
 		return;
 	}
+
 #elif GRAPHICS_API_DIRECTX
-	//TODO Alperen
+	HWND hWnd = glfwGetWin32Window(properties.nativeWindowPtr);
+	pGfx = new DX::Direct3D11(hWnd, width, height);
 #endif 
 
 	glfwSetWindowUserPointer(properties.nativeWindowPtr, &properties);
 
-	glViewport(0, 0, properties.width, properties.height);
+	//glViewport(0, 0, properties.width, properties.height);
 
+	
 	if (vsync) 
 		glfwSwapInterval(1);
 	else 
 		glfwSwapInterval(0);
+		
 
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 
 	InputHandler::Init();
 
 	AddCallbackFunctions();
 
-	glDepthFunc(GL_LEQUAL);
+	//glDepthFunc(GL_LEQUAL);
 
 
 #ifdef GRAPHICS_API_OPENGL
@@ -196,7 +200,7 @@ Engine::Window::~Window() {
 #ifdef GRAPHICS_API_OPENGL
 	ImGuiLayer::Shutdown();
 #elif GRAPHICS_API_DIRECTX
-	//TODO Alperen
+	delete pGfx;
 #endif 
 
 
@@ -216,7 +220,7 @@ void Engine::Window::Update() {
 	glClearColor(0.1f, 0.5f, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 #elif GRAPHICS_API_DIRECTX
-	//TODO Alperen
+	pGfx->BeginFrame();
 #endif 
 
 	time_prev = time_now;
@@ -232,7 +236,7 @@ void Engine::Window::Update() {
 	if (properties.dockspaceEnabled)
 		Dockspace::begin(*this);
 #elif GRAPHICS_API_DIRECTX
-	//TODO Alperen
+
 #endif 
 
 	SceneManager::update(deltaTime);
@@ -244,11 +248,10 @@ void Engine::Window::PostEvents() {
 	if (properties.dockspaceEnabled)
 		Dockspace::end();
 	ImGuiLayer::RenderNewFrame();
-#elif GRAPHICS_API_DIRECTX
-	//TODO Alperen
-#endif
-
 	glfwSwapBuffers(properties.nativeWindowPtr);
+#elif GRAPHICS_API_DIRECTX
+	pGfx->EndFrame();
+#endif
 
 	InputHandler::UpdateTemporaryBuffers();
 }
@@ -274,3 +277,10 @@ Engine::Window::WindowProperties Engine::Window::getWindowProperties()
 {
 	return properties;
 }
+
+#if GRAPHICS_API_DIRECTX
+DX::Direct3D11& Engine::Window::Gfx()
+{
+	return *pGfx;
+}
+#endif

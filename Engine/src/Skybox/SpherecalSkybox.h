@@ -59,7 +59,7 @@ namespace Engine {
 				}
 			}
 
-			vb = new Engine::VertexBuffer(vertices.data(), sizeof(glm::vec3) * vertices.size(), GL_STATIC_DRAW);
+			vb = nullptr; //new Engine::VertexBuffer(vertices.data(), sizeof(glm::vec3) * vertices.size(), GL_STATIC_DRAW);
 
 			va.bind();
 			vb->bind();
@@ -67,7 +67,7 @@ namespace Engine {
 			va.PushElement(vb, 3, Engine::VertexArray::FLOAT, false);
 			va.PushElement(vb, 3, Engine::VertexArray::FLOAT, false);
 
-			ib = new Engine::IndexBuffer(indices.data(), sizeof(uint32_t)  * indices.size(), GL_STATIC_DRAW);
+			ib = nullptr; //new Engine::IndexBuffer(indices.data(), sizeof(uint32_t)  * indices.size(), GL_STATIC_DRAW);
 
 			shader = new Engine::Shader("Shaders/skybox.shader");
 

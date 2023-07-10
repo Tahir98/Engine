@@ -56,8 +56,8 @@ void Engine::ImGuiLayer::InitImGui(Window& currentWindow) {
 
     ImGuiThemes::DarkTheme1(style);
     float fontSize = 16.0f;// *2.0f;
-    io.Fonts->AddFontFromFileTTF("Fonts/arial.ttf", fontSize);
-    io.FontDefault = io.Fonts->AddFontFromFileTTF("Fonts/arial.ttf", fontSize);
+    //io.Fonts->AddFontFromFileTTF("Sandbox\\Fonts\\arial.ttf", fontSize);
+    //io.FontDefault = io.Fonts->AddFontFromFileTTF("Sandbox\\Fonts\\arial.ttf", fontSize);
 }
 
 //Call after glPollEvents, call before glfwSwapBuffers

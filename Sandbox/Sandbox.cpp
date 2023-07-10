@@ -20,6 +20,8 @@ public:
 
 		Engine::SceneManager::pushScene(&scene);
 
+		OutputDebugString(L"WTF");
+
 		while (!window.ShouldClose()) {
 			window.Update();
 

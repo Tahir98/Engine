@@ -48,8 +48,8 @@ project "Engine"
         systemversion "latest"
         architecture "x86_64"    
         
-    defines { "GRAPHICS_API_OPENGL" }
-    --defines { "GRAPHICS_API_DIRECTX" }   
+    --defines { "GRAPHICS_API_OPENGL" }
+    defines { "GRAPHICS_API_DIRECTX" }   
         
 project "Sandbox"
     location "Sandbox"
@@ -98,8 +98,8 @@ project "Sandbox"
         systemversion "latest"
         architecture "x86_64"
 
-    defines { "GRAPHICS_API_OPENGL" }
-    --defines { "GRAPHICS_API_DIRECTX" }                    
+    --defines { "GRAPHICS_API_OPENGL" }
+    defines { "GRAPHICS_API_DIRECTX" }                    
 
 project "DxProject"
     location "DxProject"
@@ -148,6 +148,6 @@ project "DxProject"
         systemversion "latest"
         architecture "x86_64"
 
-    --defines { "GRAPHICS_API_OPENGL" }
-    defines { "GRAPHICS_API_DIRECTX" }                    
+     --defines { "GRAPHICS_API_OPENGL" }
+    defines { "GRAPHICS_API_DIRECTX" }                             
 

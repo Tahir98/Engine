@@ -9,7 +9,9 @@ int main(int args, char** argv) {
 	Engine::Application* app = Engine::CreateApplication();
 
 	if (app != nullptr)
+	{
 		app->run();
+	}
 
 	delete app;
 

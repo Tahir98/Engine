@@ -2,6 +2,7 @@
 
 #pragma once
 #include "Engine.h"
+#include "Graphics\DirectX11\Direct3D11.h"
 
 class DxExampleScene : public Engine::Scene {
 private:

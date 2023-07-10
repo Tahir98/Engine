@@ -12,19 +12,28 @@ public:
 	}
 
 	void run() override {
-		Engine::Window window("Directx11 Application", 1600, 900, false, false, true);
+		
+		try
+		{
+			Engine::Window window("Directx11 Application", 1600, 900, false, false, true);
 
-		DxExampleScene scene("Example Scene", window);
 
-		Engine::SceneManager::pushScene(&scene);
+			DxExampleScene scene("Example Scene", window);
 
-		while (!window.ShouldClose()) {
-			window.Update();
+			Engine::SceneManager::pushScene(&scene);
 
-			window.PostEvents();
+			while (!window.ShouldClose()) {
+				window.Update();
+
+				window.PostEvents();
+			}
+
+			Engine::SceneManager::clearAll();
 		}
-
-		Engine::SceneManager::clearAll();
+		catch (const std::exception& e)
+		{
+			MessageBox(nullptr, DX::convertCharArrayToLPCWSTR(e.what()), L"Standart Exception", MB_OK | MB_ICONEXCLAMATION);
+		}
 	}
 };
 

@@ -16,6 +16,9 @@
     <Filter Include="src\Graphics">
       <UniqueIdentifier>{0D564864-F9B8-D708-A23E-10BF8E80A38B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Graphics\DirectX11">
+      <UniqueIdentifier>{11AC2819-FDA5-516B-E612-E87BD2ABB7D7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Graphics\Interface">
       <UniqueIdentifier>{2D72DC97-196C-05EA-02D9-9BFAEE716B56}</UniqueIdentifier>
     </Filter>
@@ -92,6 +95,9 @@
     </ClInclude>
     <ClInclude Include="src\GUI\ImGuiThemes.h">
       <Filter>src\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Graphics\DirectX11\Direct3D11.h">
+      <Filter>src\Graphics\DirectX11</Filter>
     </ClInclude>
     <ClInclude Include="src\Graphics\Interface\FrameBuffer.h">
       <Filter>src\Graphics\Interface</Filter>
@@ -229,6 +235,9 @@
     </ClCompile>
     <ClCompile Include="src\GUI\ImGuiLayer.cpp">
       <Filter>src\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\DirectX11\Direct3D11.cpp">
+      <Filter>src\Graphics\DirectX11</Filter>
     </ClCompile>
     <ClCompile Include="src\Graphics\OpenGL\OpenGLFrameBuffer.cpp">
       <Filter>src\Graphics\OpenGL</Filter>

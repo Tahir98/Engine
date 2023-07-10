@@ -3,12 +3,16 @@
 #ifdef GRAPHICS_API_OPENGL
 #include <glad/glad.h>
 #elif GRAPHICS_API_DIRECTX
-//TODO Alperen
+#define GLFW_EXPOSE_NATIVE_WIN32
+#include "Graphics\DirectX11\Direct3D11.h"
+#include <glad/glad.h> //tmp
 #endif 
 
 #include <GLFW/glfw3.h>
+#include  <GLFW\glfw3native.h>
 #include <glm/glm.hpp>
 #include <string>
+#include <memory>
 
 #ifndef LOG_INPUTS
 	//#define LOG_INPUTS
@@ -45,6 +49,15 @@ namespace Engine {
 		void Resize(const uint32_t width, const uint32_t height);
 		bool ShouldClose();
 		WindowProperties getWindowProperties();
+
+#if GRAPHICS_API_DIRECTX
+		DX::Direct3D11& Gfx();
+#endif 
+
+	private:
+#if GRAPHICS_API_DIRECTX
+		DX::Direct3D11* pGfx;
+#endif 
 	};
 }
 

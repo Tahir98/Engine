@@ -74,7 +74,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DEBUG;GRAPHICS_API_OPENGL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;GRAPHICS_API_DIRECTX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Dependencies\GLFW\include;..\Dependencies\GLAD\include;..\Dependencies\spdlog\include;..\Dependencies\GLM;..\Dependencies\STB;vendor\ImGui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -94,7 +94,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>RELEASE;GRAPHICS_API_OPENGL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RELEASE;GRAPHICS_API_DIRECTX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Dependencies\GLFW\include;..\Dependencies\GLAD\include;..\Dependencies\spdlog\include;..\Dependencies\GLM;..\Dependencies\STB;vendor\ImGui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -118,7 +118,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DIST;GRAPHICS_API_OPENGL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DIST;GRAPHICS_API_DIRECTX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\Dependencies\GLFW\include;..\Dependencies\GLAD\include;..\Dependencies\spdlog\include;..\Dependencies\GLM;..\Dependencies\STB;vendor\ImGui;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -152,6 +152,7 @@
     <ClInclude Include="src\GUI\DockSpace.h" />
     <ClInclude Include="src\GUI\ImGuiLayer.h" />
     <ClInclude Include="src\GUI\ImGuiThemes.h" />
+    <ClInclude Include="src\Graphics\DirectX11\Direct3D11.h" />
     <ClInclude Include="src\Graphics\Interface\FrameBuffer.h" />
     <ClInclude Include="src\Graphics\Interface\IndexBuffer.h" />
     <ClInclude Include="src\Graphics\Interface\Shader.h" />
@@ -199,6 +200,7 @@
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\GUI\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Graphics\DirectX11\Direct3D11.cpp" />
     <ClCompile Include="src\Graphics\OpenGL\OpenGLFrameBuffer.cpp" />
     <ClCompile Include="src\Graphics\OpenGL\OpenGLIndexBuffer.cpp" />
     <ClCompile Include="src\Graphics\OpenGL\OpenGLShader.cpp" />
